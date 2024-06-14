@@ -1,4 +1,4 @@
-package com.example.wanted_market.member.model;
+package com.example.wanted_market.domain.member.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,11 +15,20 @@ public class Member {
 
     @Id
     @Generated
-    private Long custId;
+    private Long id;
 
     @Column(length=20, nullable = false)
-    private String id;
+    private String memberId;
 
     @Column(length=100)
     private String password;
+
+    @Column(length=100)
+    private String username;
+
+    public Member(String id, String password, String userNm){
+        this.memberId=id;
+        this.password=password;
+        this.username =userNm;
+    }
 }
